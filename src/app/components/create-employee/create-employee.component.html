@@ -1,0 +1,40 @@
+
+<div class="container mt-3">
+  <h1>Create Employee</h1>
+  <hr>
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <div class="p-fluid">
+      <label for="name">Employee Name</label>
+      <input id="name" type="text" class="form-control" formControlName="name">
+      <small class="p-error" *ngIf="submitted && employeeForm.controls.name.errors?.required">The Employee Name field is required</small>
+    </div>
+    &nbsp;
+    <div class="p-fluid">
+      <label for="designation">Designation</label>
+      <input id="designation" type="text" class="form-control" formControlName="designation" required >
+    </div>
+    &nbsp;
+    <div class="p-fluid">
+      <label for="address">Address</label>
+      <input id="address" type="text" class="form-control" formControlName="address" required >
+    </div>
+    &nbsp;
+    <div class="p-fluid">
+      <label for="salary">Employee Salary</label>
+      <input id="salary" type="number" class="form-control" formControlName="salary" required >
+      <small class="p-error" *ngIf="submitted && employeeForm.controls.salary.errors?.required">The Employee Salary field is required</small>
+    </div>
+    &nbsp;
+    <div class="p-fluid">
+      <label for="date">Joining Date</label>
+      <p-calendar id="date" formControlName="dateJoin" [showIcon]="true" [showTime]="true" [required]="true" appendTo="body"></p-calendar>
+      <small class="p-error" *ngIf="submitted && employeeForm.controls.dateJoin.errors?.required">The Joining Date field is required</small>
+    </div>
+    &nbsp;
+    <div class="col">
+      <button pButton pRipple type="submit" label="Save"></button>
+      &nbsp;
+      <button pButton pRipple type="button" label="Back" class="p-button-danger" (click)="handleClickBack()"></button>
+    </div>
+  </form>
+</div>
